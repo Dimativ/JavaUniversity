@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Результати пошуку</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h2>Результати пошуку</h2>
+<div th:if="${#lists.isEmpty(products)}">
+  <p>Товари не знайдено</p>
+</div>
+<div th:if="${!#lists.isEmpty(products)}">
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Зображення</th>
+      <th>Назва</th>
+      <th>Ціна</th>
+      <th>Стара ціна</th>
+      <th>Ссилка</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+      <td>
+        <img th:src="${product.imageUrl}" alt="Зображення товару" width="100">
+      </td>
+      <td th:text="${product.name}">Назва товару</td>
+      <td th:text="${product.price}">Ціна</td>
+      <td th:text="${product.oldPrice}">Стара ціна</td>
+      <td>
+        <a th:href="${product.productUrl}" target="_blank">Перейти</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<!-- Кнопка для экспорта в Excel -->
+<a href="/export/excel"><button type="button">Завантажити Excel</button></a>
+<br><br>
+<a href="/">Новий пошук</a>
+</body>
+</html>

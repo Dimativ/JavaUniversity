@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск товара</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .exchange-rates {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .exchange-rates table {
+            border-collapse: collapse;
+        }
+        .exchange-rates th, .exchange-rates td {
+            padding: 5px 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="exchange-rates">
+        <table>
+            <thead>
+            <tr>
+                <th>Валюта</th>
+                <th>Покупка</th>
+                <th>Продаж</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="rate : ${exchangeRates}">
+                <td th:text="${rate.currency}"></td>
+                <td th:text="${#numbers.formatDecimal(rate.buy, 1, 2)}"></td>
+                <td th:text="${#numbers.formatDecimal(rate.sale, 1, 2)}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</header>
+
+<main class="search-container">
+    <h1>Пошук товару</h1>
+    <form action="/search" method="get">
+        <label for="query">Назва товару:</label>
+        <input type="text" id="query" name="query" required>
+        <button type="submit">Знайти</button>
+    </form>
+</main>
+</body>
+</html>

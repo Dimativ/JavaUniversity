@@ -1,0 +1,8 @@
+org\lytvinenko\com\kastaparsinglytvinenko\model\Product.class
+org\lytvinenko\com\kastaparsinglytvinenko\KastaParsingLytvinenkoApplication.class
+org\lytvinenko\com\kastaparsinglytvinenko\controller\WebController$1.class
+org\lytvinenko\com\kastaparsinglytvinenko\controller\WebController.class
+org\lytvinenko\com\kastaparsinglytvinenko\service\ProductService.class
+org\lytvinenko\com\kastaparsinglytvinenko\model\ExchangeRate.class
+org\lytvinenko\com\kastaparsinglytvinenko\repository\ProductRepository.class
+org\lytvinenko\com\kastaparsinglytvinenko\model\Product$ProductBuilder.class
